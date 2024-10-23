@@ -1,6 +1,6 @@
-# BOSSFEVER QUIZ
+# BOSSFEVER Quiz
 
-BOSSFEVER QUIZ will soon be an application, that allows you to play pub quizzes with your friends.
+BOSSFEVER Quiz will soon be an application, that allows you to play pub quizzes with your friends.
 
 We are currently in the midst of development, i.e. the app doesn't work.
 
