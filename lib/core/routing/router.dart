@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quiz/core/routing/routes.dart';
+import 'package:quiz/menu/views/screens/create/battle/battle_screen.dart';
+import 'package:quiz/menu/views/screens/create/create_screen.dart';
+import 'package:quiz/menu/views/screens/create/game/game_screen.dart';
+import 'package:quiz/menu/views/screens/create/new/new_screen.dart';
 import 'package:quiz/menu/views/screens/home/home_screen.dart';
 
 final router = GoRouter(
@@ -32,7 +36,24 @@ final router = GoRouter(
         GoRoute(
           path: '/create',
           name: Routes.create,
-          builder: (context, state) => const OtherScreen(),
+          builder: (context, state) => const CreateScreen(),
+          routes: [
+            GoRoute(
+              path: '/create_new',
+              name: Routes.createNew,
+              builder: (context, state) => const NewScreen(),
+            ),
+            GoRoute(
+              path: '/create_battle',
+              name: Routes.createBattle,
+              builder: (context, state) => const BattleScreen(),
+            ),
+            GoRoute(
+              path: '/create_game',
+              name: Routes.createGame,
+              builder: (context, state) => const GameScreen(),
+            ),
+          ],
         ),
         GoRoute(
           path: '/host',
