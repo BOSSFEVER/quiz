@@ -2,7 +2,6 @@ sealed class Routes {
   // Menu Routes
   static const String home = 'menu::home';
   static const String create = 'menu::create';
-  static const String createNew = 'menu::create::new';
   static const String createGame = 'menu::create::game';
   static const String createBattle = 'menu::create::battle';
   static const String join = 'menu::join';

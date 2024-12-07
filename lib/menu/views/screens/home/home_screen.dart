@@ -1,4 +1,4 @@
-import 'package:bf_theme/theme/bf_color.dart';
+import 'package:bf_theme/bf_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quiz/core/routing/routes.dart';

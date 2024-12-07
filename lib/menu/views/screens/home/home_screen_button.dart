@@ -1,5 +1,4 @@
 import 'package:bf_theme/bf_theme.dart';
-import 'package:bf_theme/theme/bf_color.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreenButton extends StatelessWidget {
@@ -15,7 +14,7 @@ class HomeScreenButton extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.all((size.width / 50).clamp(16, double.infinity)),
-      child: BFFilledButton(
+      child: BFButton(
         onPressed: onPressed,
         width: (size.width / 5).clamp(300, double.infinity),
         height: (size.height / 1.7).clamp(500, double.infinity),

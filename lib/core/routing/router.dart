@@ -4,8 +4,9 @@ import 'package:quiz/core/routing/routes.dart';
 import 'package:quiz/menu/views/screens/create/battle/battle_screen.dart';
 import 'package:quiz/menu/views/screens/create/create_screen.dart';
 import 'package:quiz/menu/views/screens/create/game/game_screen.dart';
-import 'package:quiz/menu/views/screens/create/new/new_screen.dart';
 import 'package:quiz/menu/views/screens/home/home_screen.dart';
+
+import '../../menu/domain/entities/game.dart';
 
 final router = GoRouter(
   debugLogDiagnostics: false,
@@ -39,11 +40,6 @@ final router = GoRouter(
           builder: (context, state) => const CreateScreen(),
           routes: [
             GoRoute(
-              path: '/create_new',
-              name: Routes.createNew,
-              builder: (context, state) => const NewScreen(),
-            ),
-            GoRoute(
               path: '/create_battle',
               name: Routes.createBattle,
               builder: (context, state) => const BattleScreen(),
@@ -51,7 +47,7 @@ final router = GoRouter(
             GoRoute(
               path: '/create_game',
               name: Routes.createGame,
-              builder: (context, state) => const GameScreen(),
+              builder: (context, state) => GameScreen(game: state.extra as Game),
             ),
           ],
         ),
