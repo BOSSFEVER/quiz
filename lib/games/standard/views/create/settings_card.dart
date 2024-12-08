@@ -1,33 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:bf_theme/bf_theme.dart';
+import 'package:quiz/games/standard/domain/entities/standard_round_entity.dart';
 
 class SettingsCard extends StatelessWidget {
-  const SettingsCard({super.key});
+  const SettingsCard({super.key, required this.round, required this.index});
+
+  final StandardRoundEntity round;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        KeyWidget(label: 'Shorthand'),
-        KeyWidget(label: 'Question'),
-        KeyWidget(label: 'Answer'),
-        KeyWidget(label: 'Extra Information'),
+        KeyWidget(label: 'Shorthand', initialValue: round.shorthand),
+        KeyWidget(label: 'Question', initialValue: round.question),
+        KeyWidget(label: 'Answer', initialValue: round.answer),
+        KeyWidget(label: 'Extra Information', initialValue: round.extra),
       ],
     );
   }
 }
 
-class KeyWidget extends StatelessWidget {
+class KeyWidget extends StatefulWidget {
   const KeyWidget({
     super.key,
     required this.label,
+    required this.initialValue,
   });
 
   final String label;
+  final String initialValue;
+
+  @override
+  State<KeyWidget> createState() => _KeyWidgetState();
+}
+
+class _KeyWidgetState extends State<KeyWidget> {
+  late final TextEditingController controller;
+
+  @override
+  void initState() {
+    controller = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    controller.text = widget.initialValue;
     return Card(
       color: BFColors.widgetBackground,
       child: Padding(
@@ -40,7 +66,7 @@ class KeyWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Text(
-                  label,
+                  widget.label,
                   textAlign: TextAlign.center,
                   style: context.theme.textTheme.bodyLarge,
                 ),
@@ -48,6 +74,7 @@ class KeyWidget extends StatelessWidget {
             ),
             Expanded(
               child: TextField(
+                controller: controller,
                 cursorColor: BFColorPacks.cyan.background,
                 cursorWidth: 2,
                 decoration: InputDecoration(

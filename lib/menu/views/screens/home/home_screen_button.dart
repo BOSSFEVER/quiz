@@ -25,7 +25,7 @@ class HomeScreenButton extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 48),
             child: Text(
               text,
-              style: const TextStyle(fontSize: 64),
+              style: const TextStyle(fontSize: 64, fontWeight: FontWeight.w700),
             ),
           ),
         ),
