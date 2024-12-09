@@ -2,7 +2,6 @@ import 'package:bf_theme/bf_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz/games/standard/domain/logic/standard_logic.dart';
-import 'package:quiz/games/standard/domain/repositories/standard_game_repository.dart';
 import 'package:quiz/games/standard/views/create/round_card.dart';
 import 'package:quiz/games/standard/views/create/settings_card.dart';
 import 'package:quiz/games/standard/views/create/standard_game_cubit.dart';
@@ -13,7 +12,7 @@ class CreateStandardGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => StandardGameCubit(StandardLogic(StandardGameRepository())),
+      create: (context) => StandardGameCubit(context.read<StandardLogic>()),
       child: Scaffold(
         appBar: AppBar(
           title: Text('Create Game'),

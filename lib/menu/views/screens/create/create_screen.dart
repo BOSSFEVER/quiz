@@ -1,6 +1,9 @@
 import 'package:bf_theme/bf_theme.dart';
+import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quiz/core/editor/file_source.dart';
 import 'package:quiz/core/routing/routes.dart';
 
 class CreateScreen extends StatelessWidget {
@@ -37,7 +40,30 @@ class CreateScreen extends StatelessWidget {
                       ),
                       SizedBox(width: 128),
                       BFButton(
-                        onPressed: () => context.pushReplacementNamed(Routes.createBattle),
+                        onPressed: () async {
+                          showDialog(
+                            context: context,
+                            builder: (context) => Center(
+                              child: SizedBox(
+                                height: 60,
+                                width: 60,
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
+                                  strokeWidth: 8,
+                                ),
+                              ),
+                            ),
+                          );
+                          String? path = await getDirectoryPath();
+                          context.pop();
+                          if (path == null) {
+                            print('Nothing Selected');
+                          } else {
+                            if (context.mounted) {
+                              context.read<FileSource>().open(path);
+                            }
+                          }
+                        },
                         leading: Icons.upload,
                         colorPack: BFColorPacks.cyan,
                         child: Text('Load'),

@@ -1,5 +1,7 @@
 import 'package:bf_theme/bf_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz/core/editor/file_source.dart';
 
 import '../routing/router.dart';
 
@@ -8,11 +10,17 @@ class BossfeverQuizApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: router,
-      title: 'BOSSFEVER quiz',
-      debugShowCheckedModeBanner: false,
-      theme: BFTheme.createDarkTheme(),
+    return MultiRepositoryProvider(
+      providers: [
+        // Data
+        RepositoryProvider<FileSource>(create: (context) => FileSource()),
+      ],
+      child: MaterialApp.router(
+        routerConfig: router,
+        title: 'BOSSFEVER quiz',
+        debugShowCheckedModeBanner: false,
+        theme: BFTheme.createDarkTheme(),
+      ),
     );
   }
 }
