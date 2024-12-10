@@ -1,42 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:bf_theme/bf_theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz/games/standard/domain/entities/standard_round_entity.dart';
+import 'package:quiz/games/standard/views/create/standard_game_cubit.dart';
 
-class SettingsCard extends StatelessWidget {
-  const SettingsCard({super.key, required this.round, required this.index});
+class StandardGameEditor extends StatelessWidget {
+  const StandardGameEditor({super.key, required this.round, required this.index});
 
   final StandardRoundEntity round;
   final int index;
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<StandardGameEditorCubit>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        KeyWidget(label: 'Shorthand', initialValue: round.shorthand),
-        KeyWidget(label: 'Question', initialValue: round.question),
-        KeyWidget(label: 'Answer', initialValue: round.answer),
-        KeyWidget(label: 'Extra Information', initialValue: round.extra),
+        EditorField(label: 'Shorthand', initialValue: round.shorthand, onUpdate: (string) => cubit.updateShorthand(string)),
+        EditorField(label: 'Question', initialValue: round.question, onUpdate: (string) => cubit.updateQuestion(string)),
+        EditorField(label: 'Answer', initialValue: round.answer, onUpdate: (string) => cubit.updateAnswer(string)),
+        EditorField(label: 'Extra Information', initialValue: round.extra, onUpdate: (string) => cubit.updateExtra(string)),
       ],
     );
   }
 }
 
-class KeyWidget extends StatefulWidget {
-  const KeyWidget({
+class EditorField extends StatefulWidget {
+  const EditorField({
     super.key,
     required this.label,
     required this.initialValue,
+    required this.onUpdate,
   });
 
   final String label;
   final String initialValue;
+  final void Function(String) onUpdate;
 
   @override
-  State<KeyWidget> createState() => _KeyWidgetState();
+  State<EditorField> createState() => _EditorFieldState();
 }
 
-class _KeyWidgetState extends State<KeyWidget> {
+class _EditorFieldState extends State<EditorField> {
   late final TextEditingController controller;
 
   @override
@@ -75,6 +80,7 @@ class _KeyWidgetState extends State<KeyWidget> {
             Expanded(
               child: TextField(
                 controller: controller,
+                onChanged: widget.onUpdate,
                 cursorColor: BFColorPacks.cyan.background,
                 cursorWidth: 2,
                 decoration: InputDecoration(

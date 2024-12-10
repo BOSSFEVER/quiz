@@ -7,7 +7,7 @@ abstract class GameFramework {
     _games[gameType] = editor;
   }
 
-  static Widget Function()? getEditorForGameType(String gameType) {
+  static Widget Function()? getEditorViewForGameType(String gameType) {
     return _games[gameType];
   }
 }

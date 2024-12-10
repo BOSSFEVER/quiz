@@ -4,14 +4,14 @@ import 'package:quiz/menu/domain/logic/create_logic.dart';
 
 import 'game_card.dart';
 
-class BattleScreen extends StatelessWidget {
-  const BattleScreen({super.key});
+class BattleEditorView extends StatelessWidget {
+  const BattleEditorView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Create Battle'),
+        title: Text('Battle Editor'),
       ),
       body: Row(
         mainAxisSize: MainAxisSize.max,
@@ -55,13 +55,13 @@ class BattleScreen extends StatelessWidget {
                 itemBuilder: (context, index) => index < createLogic.getGames().length
                     ? GameCard(index: index + 1, game: createLogic.getGames()[index])
                     : Card(
-                        color: Colors.greenAccent.shade700,
+                        color: Colors.green.shade900,
                         child: SizedBox(
                           height: 64,
                           child: Center(
                             child: Text(
                               'Add Game',
-                              style: context.theme.textTheme.headlineSmall!.copyWith(color: Colors.black, fontWeight: FontWeight.w600),
+                              style: context.theme.textTheme.headlineSmall!.copyWith(color: Colors.white, fontWeight: FontWeight.w600),
                             ),
                           ),
                         ),

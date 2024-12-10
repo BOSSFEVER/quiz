@@ -6,14 +6,14 @@ import 'package:go_router/go_router.dart';
 import 'package:quiz/core/editor/file_source.dart';
 import 'package:quiz/core/routing/routes.dart';
 
-class CreateScreen extends StatelessWidget {
-  const CreateScreen({super.key});
+class InitialEditorView extends StatelessWidget {
+  const InitialEditorView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Create'),
+        title: Text('Editor'),
       ),
       body: Center(
         child: Transform.scale(
@@ -33,7 +33,7 @@ class CreateScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       BFButton(
-                        onPressed: () => context.pushReplacementNamed(Routes.createBattle),
+                        onPressed: () => context.pushReplacementNamed(Routes.battleEditor),
                         leading: Icons.add,
                         colorPack: BFColorPacks.pink,
                         child: Text('New'),
@@ -55,7 +55,9 @@ class CreateScreen extends StatelessWidget {
                             ),
                           );
                           String? path = await getDirectoryPath();
-                          context.pop();
+                          if (context.mounted) {
+                            context.pop();
+                          }
                           if (path == null) {
                             print('Nothing Selected');
                           } else {
@@ -79,5 +81,3 @@ class CreateScreen extends StatelessWidget {
     );
   }
 }
-
-void launchUrl(Uri uri) {}

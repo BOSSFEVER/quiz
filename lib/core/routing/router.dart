@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quiz/core/routing/routes.dart';
-import 'package:quiz/menu/views/screens/create/battle/battle_screen.dart';
-import 'package:quiz/menu/views/screens/create/create_screen.dart';
+import 'package:quiz/menu/views/screens/create/battle/battle_editor_view.dart';
+import 'package:quiz/menu/views/screens/create/initial_editor_view.dart';
 import 'package:quiz/menu/views/screens/create/game/game_screen.dart';
 import 'package:quiz/menu/views/screens/home/home_screen.dart';
 
@@ -35,19 +35,19 @@ final router = GoRouter(
           ],
         ),
         GoRoute(
-          path: '/create',
-          name: Routes.create,
-          builder: (context, state) => const CreateScreen(),
+          path: '/editor',
+          name: Routes.editor,
+          builder: (context, state) => const InitialEditorView(),
           routes: [
             GoRoute(
-              path: '/create_battle',
-              name: Routes.createBattle,
-              builder: (context, state) => const BattleScreen(),
+              path: '/battle_editor',
+              name: Routes.battleEditor,
+              builder: (context, state) => const BattleEditorView(),
             ),
             GoRoute(
-              path: '/create_game',
-              name: Routes.createGame,
-              builder: (context, state) => GameScreen(game: state.extra as Game),
+              path: '/game_editor',
+              name: Routes.gameEditor,
+              builder: (context, state) => GameEditorView(game: state.extra as Game),
             ),
           ],
         ),

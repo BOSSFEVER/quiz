@@ -65,7 +65,7 @@ class GameCard extends StatelessWidget {
                 ),
                 SizedBox(width: 16),
                 BFButton(
-                  onPressed: () => context.pushNamed(Routes.createGame, extra: game),
+                  onPressed: () => context.pushNamed(Routes.gameEditor, extra: game),
                   colorPack: BFColorPacks.cyan,
                   child: Icon(
                     Icons.chevron_right,

@@ -11,7 +11,23 @@ class StandardLogic {
     repo.addRound();
   }
 
-  List<StandardRoundEntity> getRounds() {
-    return repo.getRounds();
+  Stream<List<StandardRoundEntity>> subscribeToRounds() {
+    return repo.subscribeToRounds();
+  }
+
+  void updateShorthand(int index, String text) {
+    repo.updateShorthand(index, text);
+  }
+
+  void updateQuestion(int index, String text) {
+    repo.updateQuestion(index, text);
+  }
+
+  void updateAnswer(int index, String text) {
+    repo.updateAnswer(index, text);
+  }
+
+  void updateExtra(int index, String text) {
+    repo.updateExtra(index, text);
   }
 }
