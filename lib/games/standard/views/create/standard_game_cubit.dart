@@ -8,12 +8,12 @@ import '../../domain/logic/standard_logic.dart';
 
 class StandardGameEditorCubit extends Cubit<StandardGameEditorState> {
   StandardGameEditorCubit(this._standardLogic) : super(StandardGameEditorState(rounds: [], index: 0)) {
-    subscription = _standardLogic.subscribeToRounds().listen((rounds) {
+    _subscription = _standardLogic.subscribeToRounds().listen((rounds) {
       emit(state.copyWith(rounds: rounds));
     });
   }
 
-  late final StreamSubscription<List<StandardRoundEntity>> subscription;
+  late final StreamSubscription<List<StandardRoundEntity>> _subscription;
 
   final StandardLogic _standardLogic;
 
@@ -43,7 +43,7 @@ class StandardGameEditorCubit extends Cubit<StandardGameEditorState> {
 
   @override
   Future<void> close() {
-    subscription.cancel();
+    _subscription.cancel();
     return super.close();
   }
 }

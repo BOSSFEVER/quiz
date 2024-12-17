@@ -2,7 +2,7 @@ import 'package:bf_theme/bf_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quiz/core/routing/routes.dart';
-import 'package:quiz/menu/views/screens/home/home_screen_button.dart';
+import 'package:quiz/menu/presentation/home/home_screen_button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

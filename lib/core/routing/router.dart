@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quiz/core/routing/routes.dart';
-import 'package:quiz/menu/views/screens/create/battle/battle_editor_view.dart';
-import 'package:quiz/menu/views/screens/create/initial_editor_view.dart';
-import 'package:quiz/menu/views/screens/create/game/game_screen.dart';
-import 'package:quiz/menu/views/screens/home/home_screen.dart';
+import 'package:quiz/menu/presentation/editor/battle/battle_editor_view.dart';
+import 'package:quiz/menu/presentation/editor/initial_editor_view.dart';
+import 'package:quiz/menu/presentation/editor/game/game_screen.dart';
+import 'package:quiz/menu/presentation/home/home_screen.dart';
 
 import '../../menu/domain/entities/game.dart';
 

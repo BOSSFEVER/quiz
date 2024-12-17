@@ -1,6 +1,7 @@
 import 'package:bf_theme/bf_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz/core/app/version.dart';
 import 'package:quiz/core/editor/file_source.dart';
 
 import '../routing/router.dart';
@@ -10,6 +11,7 @@ class BossfeverQuizApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppVersion();
     return MultiRepositoryProvider(
       providers: [
         // Data

@@ -13,14 +13,17 @@ class StandardGameEditor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<StandardGameEditorCubit>();
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        EditorField(label: 'Shorthand', initialValue: round.shorthand, onUpdate: (string) => cubit.updateShorthand(string)),
-        EditorField(label: 'Question', initialValue: round.question, onUpdate: (string) => cubit.updateQuestion(string)),
-        EditorField(label: 'Answer', initialValue: round.answer, onUpdate: (string) => cubit.updateAnswer(string)),
-        EditorField(label: 'Extra Information', initialValue: round.extra, onUpdate: (string) => cubit.updateExtra(string)),
-      ],
+    return DefaultSelectionStyle.merge(
+      selectionColor: BFColorPacks.cyan.background.withOpacity(0.6),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          EditorField(label: 'Shorthand', initialValue: round.shorthand, onUpdate: (string) => cubit.updateShorthand(string)),
+          EditorField(label: 'Question', initialValue: round.question, onUpdate: (string) => cubit.updateQuestion(string)),
+          EditorField(label: 'Answer', initialValue: round.answer, onUpdate: (string) => cubit.updateAnswer(string)),
+          EditorField(label: 'Extra Information', initialValue: round.extra, onUpdate: (string) => cubit.updateExtra(string)),
+        ],
+      ),
     );
   }
 }
@@ -86,7 +89,7 @@ class _EditorFieldState extends State<EditorField> {
                 decoration: InputDecoration(
                   fillColor: BFColors.background,
                   filled: true,
-                  focusColor: Colors.deepOrangeAccent,
+                  focusColor: Colors.red,
                   focusedBorder: OutlineInputBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(8)),
                     borderSide: BorderSide(

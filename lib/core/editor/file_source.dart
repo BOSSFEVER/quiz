@@ -1,25 +1,34 @@
-class FileSource {
-  String? path;
+import 'package:quiz/core/editor/battle_file_source.dart';
 
-  void open(String path) async {
-    this.path = path;
+import '../../menu/domain/entities/game.dart';
+
+class FileSource {
+  BattleFileSource? _battleFileSource;
+
+  BattleFileSource get battle => _battleFileSource!;
+
+  void createNewBattleAt(String path) async {
+    _battleFileSource = BattleFileSource(path);
+    battle.createNewBattle('New New Game');
   }
 
-  void getAssets() {}
+  void updateGame() {
+    battle.updateGame();
+  }
 
-  void addAsset() {}
+  void createGame() {
+    battle.createGame();
+  }
 
-  void getGameList() {}
+  void removeGame() {
+    battle.removeGame();
+  }
 
-  void updateMetadata() {}
-
-  void updateGame() {}
-
-  void createGame() {}
-
-  void removeGame() {}
+  List<Game> readGames() {
+    return battle.readGames();
+  }
 
   void reset() {
-    path = null;
+    _battleFileSource = null;
   }
 }

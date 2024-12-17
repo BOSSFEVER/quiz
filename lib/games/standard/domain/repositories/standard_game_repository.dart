@@ -17,14 +17,11 @@ class StandardGameRepository {
       StandardRoundEntity(shorthand: 'This is an affront'),
       StandardRoundEntity(shorthand: 'Nobody makes me sad'),
     ];
-
-    stream = _roundStream.stream;
   }
 
   late final List<StandardRoundEntity> _rounds;
 
   late final StreamController<List<StandardRoundEntity>> _roundStream;
-  late final Stream<List<StandardRoundEntity>> stream;
 
   void _updateRounds() {
     _roundStream.add(_rounds.toList());

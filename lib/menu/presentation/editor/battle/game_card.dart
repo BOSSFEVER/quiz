@@ -1,9 +1,11 @@
 import 'package:bf_theme/bf_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quiz/menu/presentation/editor/battle/battle_editor_cubit.dart';
 
 import '../../../../../core/routing/routes.dart';
-import '../../../../domain/entities/game.dart';
+import '../../../domain/entities/game.dart';
 
 class GameCard extends StatelessWidget {
   const GameCard({
@@ -30,7 +32,7 @@ class GameCard extends StatelessWidget {
                   width: 32,
                   child: Center(
                     child: Text(
-                      index.toString(),
+                      (index + 1).toString(),
                       style: context.theme.textTheme.headlineSmall,
                     ),
                   ),
@@ -56,7 +58,7 @@ class GameCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 BFButton(
-                  onPressed: () {},
+                  onPressed: () => context.read<BattleEditorCubit>().deleteGame(index),
                   colorPack: BFColorPacks.red,
                   child: Icon(
                     Icons.delete,

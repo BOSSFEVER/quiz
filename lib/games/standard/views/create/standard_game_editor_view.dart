@@ -50,7 +50,9 @@ class StandardGameEditorView extends StatelessWidget {
                           );
                         } else if (index == state.rounds.length + 1) {
                           return BFButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              context.read<StandardGameEditorCubit>().addRound();
+                            },
                             width: double.infinity,
                             leading: Icons.add,
                             colorPack: BFColorPacks.green,
