@@ -1,12 +1,12 @@
 import 'dart:io';
 
-import 'package:quiz/core/editor/file_writer.dart';
+import 'package:quiz/core/app/version.dart';
 import 'package:quiz/menu/domain/entities/game.dart';
 
-import '../app/version.dart';
+import 'file_writer.dart';
 
-class BattleFileSource {
-  BattleFileSource(String path) : _path = path;
+class BattleFile {
+  BattleFile(String path) : _path = path;
 
   String _path;
   late final FileWriter _fw;

@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 
-import '../../../domain/entities/game.dart';
-import '../../../domain/logic/battle_editor_logic.dart';
+import '../../../../domain/entities/game.dart';
+import '../../../../domain/logic/battle_editor_logic.dart';
+import 'battle_editor_state.dart';
 
 class BattleEditorCubit extends Cubit<BattleEditorState> {
   BattleEditorCubit(this._battleLogic) : super(BattleEditorState([])) {
@@ -27,13 +27,4 @@ class BattleEditorCubit extends Cubit<BattleEditorState> {
     _subscription.cancel();
     return super.close();
   }
-}
-
-class BattleEditorState extends Equatable {
-  const BattleEditorState(this.games);
-
-  final List<Game> games;
-
-  @override
-  List<Object?> get props => games;
 }

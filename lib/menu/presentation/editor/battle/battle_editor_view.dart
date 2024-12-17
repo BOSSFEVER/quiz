@@ -1,12 +1,13 @@
 import 'package:bf_theme/bf_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quiz/core/editor/file_source.dart';
+import 'package:quiz/global/data/editor/file_source.dart';
 import 'package:quiz/menu/domain/logic/battle_editor_logic.dart';
 import 'package:quiz/menu/domain/repository/battle_editor_repository.dart';
-import 'package:quiz/menu/presentation/editor/battle/battle_editor_cubit.dart';
+import 'package:quiz/menu/presentation/editor/battle/bloc/battle_editor_cubit.dart';
 
-import 'game_card.dart';
+import 'bloc/battle_editor_state.dart';
+import 'widgets/game_card.dart';
 
 class BattleEditorView extends StatelessWidget {
   const BattleEditorView({super.key});

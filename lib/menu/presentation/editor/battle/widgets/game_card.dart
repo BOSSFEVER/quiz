@@ -2,10 +2,10 @@ import 'package:bf_theme/bf_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quiz/menu/presentation/editor/battle/battle_editor_cubit.dart';
+import 'package:quiz/menu/presentation/editor/battle/bloc/battle_editor_cubit.dart';
 
-import '../../../../../core/routing/routes.dart';
-import '../../../domain/entities/game.dart';
+import '../../../../../../core/routing/routes.dart';
+import '../../../../domain/entities/game.dart';
 
 class GameCard extends StatelessWidget {
   const GameCard({

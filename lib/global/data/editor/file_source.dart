@@ -1,14 +1,14 @@
-import 'package:quiz/core/editor/battle_file_source.dart';
+import 'package:quiz/menu/domain/entities/game.dart';
 
-import '../../menu/domain/entities/game.dart';
+import 'battle_file.dart';
 
 class FileSource {
-  BattleFileSource? _battleFileSource;
+  BattleFile? _battleFileSource;
 
-  BattleFileSource get battle => _battleFileSource!;
+  BattleFile get battle => _battleFileSource!;
 
   void createNewBattleAt(String path) async {
-    _battleFileSource = BattleFileSource(path);
+    _battleFileSource = BattleFile(path);
     battle.createNewBattle('New New Game');
   }
 

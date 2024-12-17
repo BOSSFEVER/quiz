@@ -1,8 +1,7 @@
 import 'dart:async';
 
+import 'package:quiz/global/data/editor/file_source.dart';
 import 'package:quiz/menu/domain/entities/game.dart';
-
-import '../../../core/editor/file_source.dart';
 
 class BattleEditorRepository {
   BattleEditorRepository(this._fileSource) {
