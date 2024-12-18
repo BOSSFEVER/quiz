@@ -1,8 +1,8 @@
 import 'package:bf_theme/bf_theme.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreenButton extends StatelessWidget {
-  const HomeScreenButton({super.key, required this.text, required this.onPressed, required this.colors});
+class HomeViewButton extends StatelessWidget {
+  const HomeViewButton({super.key, required this.text, required this.onPressed, required this.colors});
 
   final String text;
   final BFColorPack colors;

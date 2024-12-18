@@ -1,7 +1,7 @@
 import 'package:bf_theme/bf_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quiz/games/standard/views/create/standard_game_cubit.dart';
+import 'package:quiz/games/standard/views/editor/bloc/standard_game_editor_cubit.dart';
 
 class NavigationButton extends StatelessWidget {
   const NavigationButton({super.key, required this.title, required this.index});
